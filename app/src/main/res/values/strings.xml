@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Assignment 1</string>
+
+    <!-- temp welcome msg can be deleted -->
+    <string name="welcome_msg">Welcome to my Calculator! Click a Button to start!</string>
+
+    <!-- Should I have added each button here? They're values will never change but it may be good practice?/ useful for accessing the values from java class? -->
+    <string name="btnNumber1">1</string>
+    <string name="btnNumber2">2</string>
+    <string name="btnNumber3">3</string>
+    <string name="btnNumber4">4</string>
+    <string name="btnNumber5">5</string>
+    <string name="btnNumber6">6</string>
+    <string name="btnNumber7">7</string>
+    <string name="btnNumber8">8</string>
+    <string name="btnNumber9">9</string>
+    <string name="btnNumber0">0</string>
+
+    <string name="btnMinus">-</string>
+    <string name="btnPlus">+</string>
+    <string name="btnDivide">/</string>
+    <string name="btnMultiply">*</string>
+    <string name="btnClear">C</string>
+    <string name="btnEquals">=</string>
+    <string name="btnHistory">Calculator History</string>
+
+</resources>
