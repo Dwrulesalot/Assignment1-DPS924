@@ -9,19 +9,6 @@
     android:orientation="vertical"
     >
 
-    <!-- Is there a way to make the background color wrap
-    only the first cell of the Linear layout instead? -->
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/teal_200"
-        android:textSize="25dp"
-        tools:text="@string/app_name" />
-
-
     <!-- Do i need to change context to access Calculator.java? -->
     <TextView
         android:id="@+id/calcCurrentEntry"
@@ -29,9 +16,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="30dp"
+
+
         android:background="@color/lightGrey"
 
         tools:context=""
+
+        android:text=""
         />
 
 
@@ -48,32 +39,35 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="1" />
+            android:text="@string/btnNumber1"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            android:text="2" />
+            android:layout_weight="1"
+            android:text="@string/btnNumber2"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            android:text="3" />
+            android:layout_weight="1"
+            android:text="@string/btnNumber3"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/buttonPlus"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="+" />
+            android:text="@string/btnPlus"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
@@ -88,32 +82,35 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="4" />
+            android:text="@string/btnNumber4"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="5" />
+            android:text="@string/btnNumber5"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="6" />
+            android:text="@string/btnNumber6"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/buttonMinus"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="-" />
+            android:text="@string/btnMinus"
+            android:textSize="20dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -127,32 +124,35 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="7" />
+            android:text="@string/btnNumber7"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="8" />
+            android:text="@string/btnNumber8"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="9" />
+            android:text="@string/btnNumber9"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/buttonMultiply"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="*" />
+            android:text="@string/btnMultiply"
+            android:textSize="20dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -166,44 +166,47 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="C" />
+            android:text="@string/btnClear"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/button0"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="0" />
+            android:text="@string/btnNumber0"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/buttonEquals"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="=" />
+            android:text="@string/btnEquals"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/buttonDivide"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="/" />
+            android:text="@string/btnDivide"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/historyButton"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_height="50dp"
         android:layout_weight="1"
-        android:textSize="20dp"
-        android:text="Calculator History" />
+        android:text="@string/btnScientificSwitch"
+        android:textSize="20dp" />
 
 
 </LinearLayout>

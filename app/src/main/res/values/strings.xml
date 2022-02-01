@@ -22,6 +22,8 @@
     <string name="btnMultiply">*</string>
     <string name="btnClear">C</string>
     <string name="btnEquals">=</string>
-    <string name="btnHistory">Calculator History</string>
+
+    <string name="btnScientificSwitch">Advance – Scientific</string>
+    <string name="btnStandardSwitch">Standard</string>
 
 </resources>
