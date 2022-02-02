@@ -35,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnDivide;
     Button btnMultiply;
 
+    Button btnSwitchScientific;
+    boolean isScientificView = false;
+
+    Button btnMod;
+    Button btnPow;
+    Button btnMin;
+    Button btnMax;
+
     //lifecycle functions / events
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +144,63 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //
+        btnMod=(Button)findViewById(R.id.buttonModulus);
+        btnMod.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setNumberOrOperator("%");
+            }
+        });
+        btnPow=(Button)findViewById(R.id.buttonPower);
+        btnPow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setNumberOrOperator("^");
+            }
+        });
+        btnMin=(Button)findViewById(R.id.buttonMIN);
+        btnMin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setNumberOrOperator("Min");
+            }
+        });
+        btnMax=(Button)findViewById(R.id.buttonMAX);
+        btnMax.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setNumberOrOperator("Max");
+            }
+        });
+
+        //defaulting the scientific operators as invisible
+        btnMod.setVisibility(View.GONE);
+        btnPow.setVisibility(View.GONE);
+        btnMin.setVisibility(View.GONE);
+        btnMax.setVisibility(View.GONE);
+
+        //scientific view click handler
+        btnSwitchScientific = (Button) findViewById(R.id.scientificButton);
+        btnSwitchScientific.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                if(!isScientificView){
+                    btnMod.setVisibility(View.VISIBLE);
+                    btnPow.setVisibility(View.VISIBLE);
+                    btnMin.setVisibility(View.VISIBLE);
+                    btnMax.setVisibility(View.VISIBLE);
+
+                    isScientificView=true;
+                    btnSwitchScientific.setText("Standard");
+                }
+                else{
+                    btnMod.setVisibility(View.GONE);
+                    btnPow.setVisibility(View.GONE);
+                    btnMin.setVisibility(View.GONE);
+                    btnMax.setVisibility(View.GONE);
+
+                    isScientificView=false;
+                    btnSwitchScientific.setText("Advance – Scientific");
+                }
+            }
+        });
     }
 
     @Override
@@ -151,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             clear();
             ((TextView) findViewById(R.id.calcCurrentEntry)).setText("");
         }
-        calcDisplay += s;
+        calcDisplay += " "+s;
         ((TextView) findViewById(R.id.calcCurrentEntry)).setText(calcDisplay);
         calculator.push(s);
 
@@ -196,11 +261,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-    }
-
-
-    //adds buttons/operators into view and switches text from scientific to standard or vice versa
-    public void ScientificClicked(View view) {
     }
 
 }

@@ -148,6 +148,22 @@ public class Calculator {
         else if(o == "/"){
             result = n1 / n2;
         }
+        //Modulus
+        if(o == "%"){
+            result = n1 % n2;
+        }
+        //Power - casted into an integer
+        else if(o == "^"){
+            result = (int)Math.pow(n1, n2);//hopefully no error with this casting
+        }
+        //Min
+        else if(o == "Min"){
+            result = Math.min(n1, n2);
+        }
+        //MaX
+        else if(o == "Max"){
+            result = Math.max(n1, n2);
+        }
         //todo - assignment part 2 operators
 
         return result;
@@ -158,7 +174,7 @@ public class Calculator {
     String validateInput (){
         //checks if ArrayList is null, empty or has less than three inputs
         if(currentEntry==null || currentEntry.isEmpty() || currentEntry.size()<3){
-            return "Please click on at least two numbers separated by an operator first! Size: "+currentEntry.size();
+            return "Please click on at least two numbers separated by an operator first!";
         }
         //checks if first input is an operator
         else if (isOperator(currentEntry.get(0))){
@@ -212,10 +228,9 @@ public class Calculator {
         return false;
     }
 
-    //todo - update for new operators
     //Function to check if string is an Operator
     boolean isOperator(String s){
-        if(s=="+" || s=="-" || s=="*" || s=="/" ){
+        if(s=="+" || s=="-" || s=="*" || s=="/" || s=="%" || s=="^" || s=="Min" || s=="Max"){
             return true;
         }
         else{

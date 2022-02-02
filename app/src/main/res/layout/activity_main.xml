@@ -201,15 +201,58 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/historyButton"
+        android:id="@+id/scientificButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_weight="1"
         android:text="@string/btnScientificSwitch"
-        android:onClick="ScientificClicked"
         android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <Button
+            android:id="@+id/buttonModulus"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/btnModulus"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonPower"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text="@string/btnPower"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonMIN"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:onClick="EqualsClicked"
+            android:text="@string/btnMin"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonMAX"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text="@string/btnMax"
+            android:textSize="20dp" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -26,4 +26,9 @@
     <string name="btnScientificSwitch">Advance – Scientific</string>
     <string name="btnStandardSwitch">Standard</string>
 
+    <string name="btnModulus">%</string>
+    <string name="btnPower">POW</string>
+    <string name="btnMin">MIN</string>
+    <string name="btnMax">MAX</string>
+
 </resources>
