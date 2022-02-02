@@ -9,7 +9,6 @@
     android:orientation="vertical"
     >
 
-    <!-- Do i need to change context to access Calculator.java? -->
     <TextView
         android:id="@+id/calcCurrentEntry"
         android:layout_width="match_parent"
@@ -17,17 +16,12 @@
         android:layout_margin="16dp"
         android:textSize="30dp"
 
-
         android:background="@color/lightGrey"
-
-        tools:context=""
 
         android:text=""
         />
 
 
-    <!-- Will I need to setup the buttons in res values?
-     or only in the calc java class? -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

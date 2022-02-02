@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //should the below commented out code be in calculator?
-    TextView calculatorCurrentEntry;//example - how to access xml objects in java code
-    String calcDisplay = "";;
+
+    TextView calculatorCurrentEntry;//how to access xml objects in java code
+    String calcDisplay = "";
     boolean firstClick = true;
 
     Calculator calculator = new Calculator();
@@ -50,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("Ass1", "onCreate "+ R.string.app_name);
 
-        calculatorCurrentEntry = (TextView) findViewById(R.id.calcCurrentEntry);//temp - how to access textView in java code
-        //calcDisplay = "";//Initialising string to be empty
+        calculatorCurrentEntry = (TextView) findViewById(R.id.calcCurrentEntry);//accessing textView in java code
 
-        ((TextView) findViewById(R.id.calcCurrentEntry)).setText(R.string.welcome_msg);// Should I do this if calculator will be accessing it?
+        ((TextView) findViewById(R.id.calcCurrentEntry)).setText(R.string.welcome_msg);
 
         //Number buttons onClick listeners
         btn1 = (Button) findViewById(R.id.button1);
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //
+        //part 2 operators button onclick functionality
         btnMod=(Button)findViewById(R.id.buttonModulus);
         btnMod.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -209,8 +208,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Ass1", "onStart");
     }
 
-    //adds number/operator to TextView calculatorCurrentEntry and calls push("button's text/string value")
+    //adds number/operator to TextView calculatorCurrentEntry and calls calculator.push("button's text/string value")
     public void setNumberOrOperator(String s){
+        //clears welcome message/previous calculation
         if(firstClick){
             firstClick=false;
             clear();

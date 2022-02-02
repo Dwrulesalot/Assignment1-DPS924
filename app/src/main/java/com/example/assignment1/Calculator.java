@@ -18,93 +18,25 @@ public class Calculator {
         currentEntry = new ArrayList<String>();
     }
 
-    /*
-    //Legacy double digit code - too complicated atm will finish after first completing assignment
-
-
-
-
-        //bool to track first vs subsequent operations
-        boolean isFirstCalculation = true;
-
-        //makes grouping double digits easier to be parsed all at once rather then one after another adding a decimal place each time.
-        String tempDoubleDigit="";
-
-        //loops once through full arrayList
-        for (int i=0; currentEntry.size()>i; i++) {
-            //tweaked assignment instruction to allow this to work for double digits
-            if(isFirstCalculation){
-
-                if(!isOperator(currentEntry.get(i))){
-                    tempDoubleDigit += currentEntry.get(i);
-                }
-                //if first num hasn't been set yet set the operator for the first calculation
-                else if(firstNum == -1){
-                    operator = currentEntry.get(i);
-                    firstNum = Integer.parseInt(tempDoubleDigit);
-                    tempDoubleDigit = "";//resetting string for second number
-                }
-                //sets second number, does the first calculation and
-                else{
-
-                }
-
-            }
-            else{//second half first num is total(of first calculation) then you're seeing if the next number is a double digit to then calculate total OPERATOR secondNum
-
-            }
-
-
-
-            /*
-            until isOperator(currentEntry.get(i))
-                tempDoubleDigit+=currentEntry.get(i)
-                        then operator = currentEntry.get(i) when true
-                        firstNum=parseInt(tempDoubleDigit)
-                        tempDoubleDigit ="";
-            until isOperator(currentEntry.get(i)) OR currentEntry.size()>i
-                tempDoubleDigit+=currentEntry.get(i)
-                secondNum=parseInt(tempDoubleDigit)
-                        */
-
-     //*/
-
     //todo- make work for double digits
     //called when the equals button is pressed
     //goes through the validateInput function first
     int calculate(){
-        //integer to be returned
+
         int total=0;
-
-        /*
-        //first and second number with the operation being used on the two of them
-        int firstNum;
-        String operator="";
-        int secondNum;
-
-        //first calculation between the first number - operation and second number
-        firstNum = Integer.parseInt(currentEntry.get(0));
-        operator = currentEntry.get(1);
-        secondNum = Integer.parseInt(currentEntry.get(2));
-        */
-
-        //simplifying above code
 
         //first calculation between the first number - operation and second number
         //calls our mathHere function to do the calculation, first parsing the integers from the strings for our numbers
         total+= mathHere(Integer.parseInt(currentEntry.get(0)), currentEntry.get(1), Integer.parseInt(currentEntry.get(2)));
 
-        //checks if the arraylist only had 3 inputs, if so sends the result
         if(currentEntry.size()==3){
             return total;
         }
-        //else loops through the the rest of the arrayList until all operations are complete
-        else if (currentEntry.size()>3){
 
-
-            //loops once through rest of arraylist (starts at 4th index) -
+        else{
+            //loops once through rest of arraylist (starts at 4th index) - as first three index were done above
             //ends one before the end of the arraylist as it will get operator at i and number at i+1
-            //do I iterate by two? - yes
+            //iterating by two to just add the next operation&number combo
             for (int i=3; currentEntry.size()>i; i+=2) {
 
                 //calculation between the first number(total) - operation and second number
@@ -117,9 +49,6 @@ public class Calculator {
                 //as well as no double digits/operators ie.  always the format of: n1 o1 n2 o2 n3 o3 n4 etc
             }
 
-            return total;
-        }
-        else{//error catch
             return total;
         }
 
