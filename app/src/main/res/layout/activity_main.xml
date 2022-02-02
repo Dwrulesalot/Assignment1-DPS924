@@ -166,6 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:onClick="ClearClicked"
             android:text="@string/btnClear"
             android:textSize="20dp" />
 
@@ -184,6 +185,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:onClick="EqualsClicked"
             android:text="@string/btnEquals"
             android:textSize="20dp" />
 
@@ -206,6 +208,7 @@
         android:layout_marginRight="32dp"
         android:layout_weight="1"
         android:text="@string/btnScientificSwitch"
+        android:onClick="ScientificClicked"
         android:textSize="20dp" />
 
 
