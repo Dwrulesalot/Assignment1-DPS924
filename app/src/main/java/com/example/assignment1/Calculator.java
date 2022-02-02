@@ -19,35 +19,89 @@ public class Calculator {
     }
 
     //called when the equals button is pressed
-    //I kinda wanna make this void/string and then just add the int as a string to the arrayList or change the TextView from here
-    //i think to keep this as an int return I'd need to error check in main activity not here
-    int calculate() throws ArrayIndexOutOfBoundsException{//does this exception work for valid list size?
-        //checking for valid list size (3 or more, not null/empty)
-        if(currentEntry!=null || currentEntry.isEmpty() || currentEntry.size()<3){
-            //calculatorCurrentEntry = (TextView)"";
-            //Please click on at least two numbers separated by an operator first!
-        }
-        else{
-            //for loop running through currentEntry arrayList
-            for (int i=0; currentEntry.size()<i; i++) {
+    //goes through the validateInput function first
+    int calculate(){
+        //integer to be returned
+        int total=0;
 
-                //if in the first iteration
-                if (i == 0) {
-                    String first = currentEntry.get(0);
-                    //validating first entry isn't an operation
-                    if (first.equals("+") || first.equals("-") || first.equals("+") || first.equals("+")) {
+        //first and second number with the operation being used on the two of them
+        int firstNum= -1;
+        String operator="";
+        int secondNum= -1;
 
-                    }
+        //bool to track first vs subsequent operations
+        boolean isFirstCalculation = true;
+
+        //makes grouping double digits easier to be parsed all at once rather then one after another adding a decimal place each time.
+        String tempDoubleDigit="";
+
+        //loops once through full arrayList
+        for (int i=0; currentEntry.size()>i; i++) {
+            //tweaked assignment instruction to allow this to work for double digits
+            if(isFirstCalculation){
+
+                if(!isOperator(currentEntry.get(i))){
+                    tempDoubleDigit += currentEntry.get(i);
                 }
+                //if first num hasn't been set yet set the operator for the first calculation
+                else if(firstNum == -1){
+                    operator = currentEntry.get(i);
+                    firstNum = Integer.parseInt(tempDoubleDigit);
+                    tempDoubleDigit = "";//resetting string for second number
+                }
+                //sets second number, does the first calculation and
+                else{
+
+                }
+
+            }
+            else{//second half first num is total(of first calculation) then you're seeing if the next number is a double digit to then calculate total OPERATOR secondNum
+
             }
 
 
 
-            return 0;
+            /*
+            until isOperator(currentEntry.get(i))
+                tempDoubleDigit+=currentEntry.get(i)
+                        then operator = currentEntry.get(i) when true
+                        firstNum=parseInt(tempDoubleDigit)
+                        tempDoubleDigit ="";
+            until isOperator(currentEntry.get(i)) OR currentEntry.size()>i
+                tempDoubleDigit+=currentEntry.get(i)
+                secondNum=parseInt(tempDoubleDigit)
+                        */
+
+            //tempted to make all these operations their own methods/functions
+            if (operator=="+"){
+
+            }
+            else if(operator=="-"){
+
+            }
+            else if(operator=="*"){
+
+            }
+            else if(operator=="/"){
+
+            }
+
+
+            //first iteration - tweaked to allow this to work for double digits
+            if(i==0){
+                //if the second string is an operator
+                if(isOperator(currentEntry.get(i+1))){
+
+                    //Since validation checked there's no repeating operations we'll check how long the second number is (before we hit the next operation)
+                    //We also validated the last String in the ArrayList is a number and not an operation.
+
+                }
+            }
         }
 
         return 0;//needs to return an int to complete :/
      }
+
 
     //Validate Input Function
     String validateInput (){
@@ -58,6 +112,10 @@ public class Calculator {
         //checks if first input is an operator
         else if (isOperator(currentEntry.get(0))){
             return "Calculation cannot start with an operation!";
+        }
+        //checks if last input is an operator
+        else if (isOperator(currentEntry.get(currentEntry.size()-1))){//is size()-1 the right index?
+            return "Calculation cannot end with an operation!";
         }
         //checking for having two operators in a row
         else if (ifDoubleOperator()){

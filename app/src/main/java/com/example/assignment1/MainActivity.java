@@ -168,70 +168,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Calls calculate() function in Calculator class that then either returns error or an int to add to TextView calculatorCurrentEntry?
-    // take some time to figure out the best way to implement this
-    //should I move chunks of this to the calculator class/ the calculate function?
+    //Calls validateInput() in the Calculator class to check if input is valid, then calls the calculate() function in the Calculator class
+    //Either returns error or an int to add to TextView calculatorCurrentEntry
     public void EqualsClicked(View view) {
         //Checks for Valid Input - Returns "Successful", or a detailed error msg
         String validation = calculator.validateInput();
         if(validation=="Successful"){
-            //calculator.calculate();//to do
+            //if successful adds answer to the textview
+            calcDisplay += " = "+ calculator.calculate();
+            ((TextView) findViewById(R.id.calcCurrentEntry)).setText(calcDisplay);
+
         }
         else{
+            //clears the input replacing it with the error/what was invalid about the input
             clear();
             ((TextView) findViewById(R.id.calcCurrentEntry)).setText(validation);
             Toast.makeText(getApplicationContext(), validation, Toast.LENGTH_LONG).show();
             return;
         }
 
-
-        //checking for valid list size (3 or more, not null/empty)
-        if( calcDisplay=="" || calcDisplay.length()<3){
-            clear();
-            Toast.makeText(getApplicationContext(), "Please click on at least two numbers separated by an operator first!", Toast.LENGTH_LONG).show();
-            Log.d("equalsTest", calcDisplay);
-            return;
-        }
-
-        //taking the char/first string entered
-        char c = calcDisplay.charAt(0);
-        //checking it does not starting with an operator
-        if( c == '+' || c == '-' || c == '*' || c == '/' ){
-            Log.d("equalsTest", calcDisplay);
-            clear();
-            Toast.makeText(getApplicationContext(), "Calculation cannot start with an operation!", Toast.LENGTH_LONG).show();
-            return;
-        }
-        Log.d("equalsTest", calcDisplay);
-
-        //checking for having two operators in a row
-        //starting at the second char as the first cannot be an operation,
-        //running the loop -1 times as the last number is check at the same time as the second last number
-        for(int i=1; calcDisplay.length() > i-1; i++){
-            Log.d("equalsTest", calcDisplay);
-            char temp1 = calcDisplay.charAt(i);
-            Log.d("temp1", Character.toString(temp1));
-            char temp2 = calcDisplay.charAt(i+1);
-            Log.d("temp2", Character.toString(temp2));
-            if(temp1 == '+' || temp1 == '-' || temp1 == '*' || temp1 == '/'){
-                if(temp2 == '+' || temp2 == '-' || temp2 == '*' || temp2 == '/'){
-                    Toast.makeText(getApplicationContext(), "Cannot have two Operations in a row! Please clear and try again.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-            }
-        }
-
-        //now code what to do if no errors
-
-
-
-
     }
 
 
-
-
-    //adds operators into view and switches text from scientific to standard or vice versa
+    //adds buttons/operators into view and switches text from scientific to standard or vice versa
     public void ScientificClicked(View view) {
     }
 
