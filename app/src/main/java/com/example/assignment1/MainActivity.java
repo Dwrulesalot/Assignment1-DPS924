@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
     public void setNumberOrOperator(String s){
         if(firstClick){
             firstClick=false;
+            clear();
             ((TextView) findViewById(R.id.calcCurrentEntry)).setText("");
         }
         calcDisplay += s;
@@ -171,22 +172,30 @@ public class MainActivity extends AppCompatActivity {
     //Calls validateInput() in the Calculator class to check if input is valid, then calls the calculate() function in the Calculator class
     //Either returns error or an int to add to TextView calculatorCurrentEntry
     public void EqualsClicked(View view) {
-        //Checks for Valid Input - Returns "Successful", or a detailed error msg
-        String validation = calculator.validateInput();
-        if(validation=="Successful"){
-            //if successful adds answer to the textview
-            calcDisplay += " = "+ calculator.calculate();
-            ((TextView) findViewById(R.id.calcCurrentEntry)).setText(calcDisplay);
-
+        //if first click/ first click after calculation will just clear all
+        if(firstClick) {
+            clear();
+            firstClick=false;
+            ((TextView) findViewById(R.id.calcCurrentEntry)).setText("");
         }
         else{
-            //clears the input replacing it with the error/what was invalid about the input
-            clear();
-            ((TextView) findViewById(R.id.calcCurrentEntry)).setText(validation);
-            Toast.makeText(getApplicationContext(), validation, Toast.LENGTH_LONG).show();
-            return;
-        }
+            //Checks for Valid Input - Returns "Successful", or a detailed error msg
+            String validation = calculator.validateInput();
+            if (validation == "Successful") {
+                //if successful adds answer to the textview
+                calcDisplay += " = " + calculator.calculate();
+                ((TextView) findViewById(R.id.calcCurrentEntry)).setText(calcDisplay);
 
+                //sets first click to true so after a calculation next button click will clear() etc
+                firstClick = true;
+            } else {
+                //clears the input replacing it with the error/what was invalid about the input
+                clear();
+                ((TextView) findViewById(R.id.calcCurrentEntry)).setText(validation);
+                Toast.makeText(getApplicationContext(), validation, Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
     }
 
 
