@@ -130,8 +130,7 @@ public class Calculator {
     //checks if there's two numbers in a row throughout the whole ArrayList
     boolean ifDoubleNumber(){
         //running the loop size()-2 time as the last string is checked at the same time as the second last string
-        //and size() starts counting at 1 vs index starts at 0
-        for(int i=0; currentEntry.size()-2>i; i++){
+        for(int i=0; currentEntry.size()-1>i; i++){
             String temp1 = currentEntry.get(i);
             String temp2 = currentEntry.get(i+1);
             if(!isOperator(temp1) && !isOperator(temp2)){
@@ -144,9 +143,8 @@ public class Calculator {
 
     //checks if there's two operators in a row throughout the whole ArrayList
     boolean ifDoubleOperator(){
-        //running the loop size()-2 time as the last string is checked at the same time as the second last string
-        //and size() starts counting at 1 vs index starts at 0
-        for(int i=0; currentEntry.size()-2>i; i++){
+        //running the loop size()-1 time as the last string is checked at the same time as the second last string
+        for(int i=0; currentEntry.size()-1>i; i++){
             String temp1 = currentEntry.get(i);
             String temp2 = currentEntry.get(i+1);
             if(isOperator(temp1) && isOperator(temp2)){
